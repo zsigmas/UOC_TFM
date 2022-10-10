@@ -1,0 +1,187 @@
+---
+title: "Reproducible analysis and interactive reports using containers and R/Shiny in bioinformatics pipelines"
+subtitle: "PEC1"
+author: "Luis Morís Fernández"
+format: docx
+    
+editor: visual
+---
+
+<!--#reference-doc: template/custom-reference-doc.docx-->
+
+# Title
+
+Reproducible analysis and interactive reports using containers and R/Shiny in bioinformatics pipelines
+
+# Keywords
+
+reproducibility, interactive, pipeline, bioinformatics
+
+# Context and justification of this work
+
+Reproducibility is one of the cornerstones of the scientific method, nonetheless is one of the most commonly forgotten, sometimes shadowed by the novelty or alleged impact of the results. With the advent of informatics more powerful and flexible analyses are available to researchers in all fields. Unfortunately, this power and flexibility comes usually at the cost of complexity and length. Bioinformatics pipelines are paramount examples of the benefit of these powerful and flexible analyses and also of the cost of complexity. This issue is not solved exclusively by properly storing the scripts of analysis and the data, additional considerations must be taken, such as the pathing, the version of the language used, the version of the libraries, the operating system and its version, etc. All these problem hinders reproducibility and utmost care must be taken when preparing and storing these pipelines, so they can be run not only at the moment of the initial analysis but at any moment in the future when another researcher may need to verify the analyses, extend them or run them on new data.
+
+In this work I will explore two possible ways of improving reproducibility when developing bioinformatic pipelines. The first one is making the analysis steps traceable from the start to end. This regards the actual scripts that will be executed during the analysis. To address this issue I will take advantage of pipeline creation tools that allows creating long reproducible analysis pipelines. The second is creating a reproducible a light-weight stable environment were the previous pipeline will through the use of containers.
+
+The other objective of this work has to do with the interactivity of the the reports obtained during the analysis process.  It is rarely the case, particularly in clinical environments, that the same person has the ability to program and run analyses (e.g.: a bioinfomatics expert) and also to make decisions based on those data (e.g.: a medical doctor). This usually creates a communication overhead between the data expert and the decision-maker until the exact data needed to make the decision is found. Here I will create an interactive report that will try to ameliorate this problem by providing the decision-maker with a small set of tools that would decrease this communication overhead.
+
+# General description
+
+The intention of this work is to create a proof of concept that would address two problems commonly found when developing bioinformatics pipelines. The first one is how to improve its reproducibility through the use of containers. And the second one is to explore interactive reports as a mean to reduce the overhead between bioninformatics and medical personnel improving the decision making loop.
+
+# Objectives
+
+## General Objectives
+
+Create a proof of concept that includes a traceable and reproducible pipeline. This pipeline must run inside a container and produce an interactive report as a result.
+
+## Specific objectives
+
+1. Describe the reproducibility problem in bioinformatics
+
+1. Explore containers as a mean to improve the reproducibility of bioinformatics pipelines
+
+1. Explore interactive reports as a mean to improve the decision making loop in clinical settings
+
+1. Create a pipeline using containers that produce an interactive report as a result in a real setting
+
+# Approach and method
+
+For this work, firstly, I will describe the state of the art in reproducibility with particular emphasis in the bioinformatics field. Secondly, I will create a proof of concept of a containerized pipeline with and interactive report. In this second part, I will count with the support of the *Plataforma de Bioinformática de la Unidad de Estadística y Bioinformática (UEB)* for having access to data and creating a useful pipeline that could be used in a real clinical setting.
+
+From a technical point of view, albeit other tools may be explored during this work, the language R will be used as the foundation for all the software produced in it, with a particular focus on the `targets` package for creating reproducible pipelines. The `docker` container technology will be used for containerizing the pipeline. And finally the `R/Shiny` framework will be used to create an interactive report.
+
+# Planning
+
+## Tasks
+
+Each task will be related to a specific objective using the acronym *SO*
+
+1. Review literature for:
+
+    1. **(SO1)** General problems of reproducibility in science and in bioinformatics
+  
+    1. **(SO1)** Current approaches to solve this problem
+  
+1. Software and technical knowledge and familiarization with:
+
+    1. **(SO2, SO3)** Docker, `R/Shiny` and `targets` R package
+  
+    1. **(SO4)** `maUEB` package
+  
+1. **(SO2, SO4)** Definition and implementation of the analysis pipeline
+
+1. **(SO3, SO4)** Definition and implementation of the interactive report
+
+1. **(SO2, SO4)** Containerization of the pipeline
+
+
+## Schedule
+
+```{r, echo = FALSE, fig.width = 8, fig.height=8, dpi=300}
+library(magrittr)
+tasks <- tibble::tribble(
+  ~task, ~start, ~end, ~type, ~label, ~alpha,
+  "PEC", "28-09-2022", "17/10/2022", "PEC", "1", 0,
+  "PEC", "18-10-2022", "21/11/2022", "PEC", "2", 0,
+  "PEC", "22/11/2022", "24/12/2022", "PEC", "3", 0,
+  "PEC", "25/12/2022", "15/01/2023", "PEC", "4", 0,
+  "PEC", "23/01/2023", "03/02/2023", "PEC", "5", 0,
+  "Work Plan", "28-09-2022", "17/10/2022", "Task", NA, 1,
+  "Review literature (SO1)", "28-09-2022", "21-11-2022", "Task",NA, 1,
+  "Familiarize with Docker,\n Shiny and targets (SO2, SO3)", "18-10-2022", "25-10-2022", "Task",NA, 1,
+  "Familiarize maUEB (S04)", "18-10-2022", "01-11-2022", "Task",NA, 1,
+  "Implementation of analysis pipeline(SO4)", "18-10-2022", "08-11-2022", "Task",NA, 1,
+  "Creation of analysis pipeline (SO4)", "25-10-2022", "21-11-2022", "Task",NA, 1,
+  "Definition of interactive output (SO4)", "8-11-2022", "21-11-2022", "Task",NA, 1,
+  "Implementation of interactive output (SO4)", "22-11-2022", "05-12-2022", "Task",NA,1,
+  "Containerization of the pipeline (SO4)", "29-11-2022", "24-12-2022", "Task",NA,1,
+  "Manuscript and slides", "25/12/2022", "15/01/2023", "Task", NA,1,
+  "Public Defense", "23/01/2023", "03/02/2023", "Task", NA,1
+) %>% 
+  dplyr::mutate(
+    start = lubridate::dmy(start),
+    end = lubridate::dmy(end),
+    label_pos = start + (end-start)/2,
+    task = factor(task, ordered = TRUE, levels = rev(unique(task)))
+  )
+
+# %>% 
+#   tidyr:::pivot_longer(cols=start:end, names_to = NULL, values_to = "date")
+
+ggplot2::ggplot(
+  tasks,
+  ggplot2::aes(
+    y = task,
+    yend = task,
+    x = start,
+    xend = end,
+    label = label,
+    size = size
+    )
+  ) + 
+  ggplot2::geom_segment(size = 1, mapping = ggplot2::aes(alpha=alpha)) +
+  ggplot2::geom_label(data = dplyr::filter(tasks, !is.na(label)), mapping = ggplot2::aes(x=label_pos), nudge_x = -.5, size = 4, label.size = 0) +
+  ggplot2::labs(x=NULL, y = NULL) +
+  ggthemes::theme_tufte(base_family = "Arial Narrow") +
+  ggplot2::theme(legend.position = "None") +
+  ggplot2::geom_vline(xintercept = c(lubridate::dmy("17/10/2022"),lubridate::dmy("21/11/2022"),lubridate::dmy("24/12/2022"),lubridate::dmy("15/01/2023"),lubridate::dmy("23/01/2023"),lubridate::dmy("03/02/2023")), linetype = 2)
+  
+
+```
+
+## Milestones
+
+1. Workplan **(17/07/2022)**
+
+1. Literature review and state of the art
+
+1. Creating a pipeline using `targets`
+
+1. Defining the interactive output
+
+1. PEC2 **(21/11/2022)**
+
+1. Implementing interactive output
+
+1. Containerize the pipeline
+
+1. PEC3 **(24/12/2022)**
+
+1. Manuscript and slides **(27/12/2022 - 15/01/2023)**
+
+1. Public defense **(23/01/2023 - 03/02/2023)**
+
+## Risk analysis
+
+Here I present possible risks and proposed solutions.
+
+1. Oversized scope. This work tries to address two well-diferentiated problems, the reproducibility and the report interactivity. The interactivity scope can be reduced or removed from the work if the amount of time is not enough to cover both. The solution proposed is to reevaluate the scope when PEC2 is finalized and the scope is better defined.
+
+1. Package availability. The initial intention is to use a recently developed package `maUEB`. If the package is not available I propose to use other alternatives covered during the master classes.
+
+1. Data availability. If data is unavailable, for example confidentiality for confidentiality reasons, I propose to use open data sources.
+
+1. Pipeline definition. If the the pipeline is not possible to define in a real clinical setting, I propose to follow steps similar to those used in the pipelines during the master classes.
+
+# Expected results
+
+1. Work plan
+
+    A detailed workplan for the thesis work.
+
+1. Thesis document
+
+    A document containing an state of the art, methodology, results and conclusions obtained during the master's thesis.
+
+1. A working proof of concept
+
+    A containerized pipeline, delivered as an R package.
+
+1. Slides and virtual presentation
+
+    Slides and a video presentation for the defence.
+
+# Bibliography
+
+IN PROGRESS
