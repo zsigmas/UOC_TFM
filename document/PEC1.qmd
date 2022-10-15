@@ -3,6 +3,7 @@ title: "Reproducible analysis and interactive reports using containers and R/Shi
 subtitle: "PEC1"
 author: "Luis Morís Fernández"
 format: docx
+bibliography: references.bib
     
 editor: visual
 ---
@@ -19,37 +20,50 @@ reproducibility, interactive, pipeline, bioinformatics
 
 # Context and justification of this work
 
-Reproducibility is one of the cornerstones of the scientific method, nonetheless is one of the most commonly forgotten, sometimes shadowed by the novelty or alleged impact of the results. With the advent of informatics more powerful and flexible analyses are available to researchers in all fields. Unfortunately, this power and flexibility comes usually at the cost of complexity and length. Bioinformatics pipelines are paramount examples of the benefit of these powerful and flexible analyses and also of the cost of complexity. This issue is not solved exclusively by properly storing the scripts of analysis and the data, additional considerations must be taken, such as the pathing, the version of the language used, the version of the libraries, the operating system and its version, etc. All these problem hinders reproducibility and utmost care must be taken when preparing and storing these pipelines, so they can be run not only at the moment of the initial analysis but at any moment in the future when another researcher may need to verify the analyses, extend them or run them on new data.
+Reproducibility is one of the cornerstones of the scientific method, nonetheless is one of the most commonly forgotten, sometimes shadowed by the novelty or alleged impact of the results [@Ioannidis_2005; @Errington_2021]. With the advent of informatics more powerful and flexible analyses are available to researchers in all fields everyday [@Gauthier_2018]. Unfortunately, this power and flexibility comes usually at the cost of complexity and length. Bioinformatics pipelines are paramount examples of the benefit of these powerful and flexible analyses and also of the cost of complexity [@Ioannidis_2009; @Mangul_Mosqueiro_2019; @Markowetz_2015; @Brito_2020]. This issue is not solved exclusively by properly storing the scripts of analysis and the data, additional considerations must be taken, such as the pathing, the version of the language used, the version of the libraries, the operating system and its version, etc [@Wratten_2021; @Wallach_2018]. All these problem hinders reproducibility and utmost care must be taken when preparing and storing these pipelines, so they can be run not only at the moment of the initial analysis but at any moment in the future when another researcher may need to verify the analyses, extend them or run them on new data.
 
-In this work I will explore two possible ways of improving reproducibility when developing bioinformatic pipelines. The first one is making the analysis steps traceable from the start to end. This regards the actual scripts that will be executed during the analysis. To address this issue I will take advantage of pipeline creation tools that allows creating long reproducible analysis pipelines. The second is creating a reproducible a light-weight stable environment were the previous pipeline will through the use of containers.
+This work will explore two possible ways of improving reproducibility when developing bioinformatic pipelines. The first one is making the analysis steps traceable from the start to end. This regards the actual scripts that will be executed during the analysis. To address this issue I will take advantage of workflow creation tools that allows creating long reproducible analysis pipelines. The second is creating a reproducible a light-weight stable environment were the previous pipeline will through the use of containers.
 
-The other objective of this work has to do with the interactivity of the the reports obtained during the analysis process.  It is rarely the case, particularly in clinical environments, that the same person has the ability to program and run analyses (e.g.: a bioinfomatics expert) and also to make decisions based on those data (e.g.: a medical doctor). This usually creates a communication overhead between the data expert and the decision-maker until the exact data needed to make the decision is found. Here I will create an interactive report that will try to ameliorate this problem by providing the decision-maker with a small set of tools that would decrease this communication overhead.
+The other objective of this work has to do with the interactivity of the the reports obtained during the analysis process.  It is rarely the case, particularly in clinical environments, that the same person has the ability to program and run analyses (e.g.: a bioinfomatics expert) and also to make decisions based on those data (e.g.: a medical doctor) [@Ludt_2022]. This usually creates a communication overhead between the data expert and the decision-maker until the exact data needed to make the decision is found. This work will also create an interactive report that will try to ameliorate this problem by providing the decision-maker with a small set of tools that would decrease this communication overhead.
 
 # General description
 
-The intention of this work is to create a proof of concept that would address two problems commonly found when developing bioinformatics pipelines. The first one is how to improve its reproducibility through the use of containers. And the second one is to explore interactive reports as a mean to reduce the overhead between bioninformatics and medical personnel improving the decision making loop.
+The intention of this work is to create a proof of concept that would address two problems commonly found when developing bioinformatics pipelines. The first one is how to improve its reproducibility through the use of workflow tools and containers. And the second one is to explore interactive reports as a mean to reduce the overhead between bioninformatics and medical personnel improving the decision making loop.
 
 # Objectives
 
 ## General Objectives
 
-Create a proof of concept that includes a traceable and reproducible pipeline. This pipeline must run inside a container and produce an interactive report as a result.
+Create a proof of concept that includes a traceable and reproducible pipeline through the use of workflow tools. This pipeline must run inside a container and produce an interactive report as a result.
 
 ## Specific objectives
 
 1. Describe the reproducibility problem in bioinformatics
 
-1. Explore containers as a mean to improve the reproducibility of bioinformatics pipelines
+1. Explore containers and workflow tools as a mean to improve the reproducibility of bioinformatics pipelines
 
 1. Explore interactive reports as a mean to improve the decision making loop in clinical settings
 
-1. Create a pipeline using containers that produce an interactive report as a result in a real setting
+1. Create a microarray analysis pipeline using containers that produce an interactive report as a result in a real setting
 
 # Approach and method
 
-For this work, firstly, I will describe the state of the art in reproducibility with particular emphasis in the bioinformatics field. Secondly, I will create a proof of concept of a containerized pipeline with and interactive report. In this second part, I will count with the support of the *Plataforma de Bioinformática de la Unidad de Estadística y Bioinformática (UEB)* for having access to data and creating a useful pipeline that could be used in a real clinical setting.
+Firstly, this work will address the state of the art in reproducibility with particular emphasis in the bioinformatics field. Secondly, this work will explore the creation of a proof of concept microarrays analysis pipeline created in a workflow tool that will run inside a container that will produce, among other products, an interactive report. In this second part, I will count with the support of the *Plataforma de Bioinformática de la Unidad de Estadística y Bioinformática (UEB)* for having access to data and creating a useful pipeline that could be used in a real clinical setting.
 
-From a technical point of view, albeit other tools may be explored during this work, the language R will be used as the foundation for all the software produced in it, with a particular focus on the `targets` package for creating reproducible pipelines. The `docker` container technology will be used for containerizing the pipeline. And finally the `R/Shiny` framework will be used to create an interactive report.
+From a technical point of view, albeit other tools may be explored during this work:
+
+  - The `R` [@R_language] language will be used as the foundation for all the software produced in it.
+  - The `maUEB` package functions, currently under development by the *UEB*, will be used to implement the microarray analysis pipeline.
+  - The `targets` [@targets] package will be used as the workflow tool to create the pipeline itself in combination with the `maUEB` functions.
+  - `R/Shiny` [@shiny] framework will be used to create an interactive report.
+  - `Docker` [@docker] container technology will be used for containerizing the pipeline.
+  
+While selecting the tools for this work the following considerations were kept:
+
+  - Minimize friction between components when developing the proof of concept. That is the reason why all tools are `R`-based, with the exception of `docker`.
+  - Use components easily installed and run inside a container.
+  - Favor analysis scripts over graphical user interfaces.
+  - Favor simplicity and closeness to the `R` language [@Ousterhout_18].
 
 # Planning
 
@@ -158,11 +172,11 @@ Here I present possible risks and proposed solutions.
 
 1. Oversized scope. This work tries to address two well-diferentiated problems, the reproducibility and the report interactivity. The interactivity scope can be reduced or removed from the work if the amount of time is not enough to cover both. The solution proposed is to reevaluate the scope when PEC2 is finalized and the scope is better defined.
 
-1. Package availability. The initial intention is to use a recently developed package `maUEB`. If the package is not available I propose to use other alternatives covered during the master classes.
+1. Package availability. The initial intention is to use a recently developed package `maUEB`. If the package is not available other alternative packages covered during the master classes will be used.
 
-1. Data availability. If data is unavailable, for example confidentiality for confidentiality reasons, I propose to use open data sources.
+1. Data availability. If data is unavailable, for example confidentiality for confidentiality reasons, open data sources will be used.
 
-1. Pipeline definition. If the the pipeline is not possible to define in a real clinical setting, I propose to follow steps similar to those used in the pipelines during the master classes.
+1. Pipeline definition. If the the pipeline is not possible to define in a real clinical setting, steps similar to those used in the other pipelines during the master classes will be used.
 
 # Expected results
 
@@ -184,4 +198,3 @@ Here I present possible risks and proposed solutions.
 
 # Bibliography
 
-IN PROGRESS
