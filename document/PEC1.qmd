@@ -24,7 +24,7 @@ Reproducibility is one of the cornerstones of the scientific method, nonetheless
 
 This work will explore two possible ways of improving reproducibility when developing bioinformatic pipelines. The first one is making the analysis steps traceable from the start to end. This regards the actual scripts that will be executed during the analysis. To address this issue I will take advantage of workflow creation tools that allows creating long reproducible analysis pipelines. The second is creating a reproducible a light-weight stable environment were the previous pipeline will through the use of containers.
 
-The other objective of this work has to do with the interactivity of the the reports obtained during the analysis process.  It is rarely the case, particularly in clinical environments, that the same person has the ability to program and run analyses (e.g.: a bioinfomatics expert) and also to make decisions based on those data (e.g.: a medical doctor) [@Ludt_2022]. This usually creates a communication overhead between the data expert and the decision-maker until the exact data needed to make the decision is found. This work will also create an interactive report that will try to ameliorate this problem by providing the decision-maker with a small set of tools that would decrease this communication overhead.
+The other objective of this work has to do with the interactivity of the the reports obtained during the analysis process. It is rarely the case, particularly in clinical environments, that the same person has the ability to program and run analyses (e.g.: a bioinfomatics expert) and also to make decisions based on those data (e.g.: a medical doctor) [@Ludt_2022]. This usually creates a communication overhead between the data expert and the decision-maker until the exact data needed to make the decision is found. This work will also create an interactive report that will try to ameliorate this problem by providing the decision-maker with a small set of tools that would decrease this communication overhead.
 
 # General description
 
@@ -38,13 +38,13 @@ Create a proof of concept that includes a traceable and reproducible pipeline th
 
 ## Specific objectives
 
-1. Describe the reproducibility problem in bioinformatics
+1.  Describe the reproducibility problem in bioinformatics
 
-1. Explore containers and workflow tools as a mean to improve the reproducibility of bioinformatics pipelines
+2.  Explore containers and workflow tools as a mean to improve the reproducibility of bioinformatics pipelines
 
-1. Explore interactive reports as a mean to improve the decision making loop in clinical settings
+3.  Explore interactive reports as a mean to improve the decision making loop in clinical settings
 
-1. Create a microarray analysis pipeline using containers that produce an interactive report as a result in a real setting
+4.  Create a microarray analysis pipeline using containers that produce an interactive report as a result in a real setting
 
 # Approach and method
 
@@ -52,18 +52,18 @@ Firstly, this work will address the state of the art in reproducibility with par
 
 From a technical point of view, albeit other tools may be explored during this work:
 
-  - The `R` [@R_language] language will be used as the foundation for all the software produced in it.
-  - The `maUEB` package functions, currently under development by the *UEB*, will be used to implement the microarray analysis pipeline.
-  - The `targets` [@targets] package will be used as the workflow tool to create the pipeline itself in combination with the `maUEB` functions.
-  - `R/Shiny` [@shiny] framework will be used to create an interactive report.
-  - `Docker` [@docker] container technology will be used for containerizing the pipeline.
-  
+-   The `R` [@R_language] language will be used as the foundation for all the software produced in it.
+-   The `maUEB` package functions, currently under development by the *UEB*, will be used to implement the microarray analysis pipeline.
+-   The `targets` [@targets] package will be used as the workflow tool to create the pipeline itself in combination with the `maUEB` functions.
+-   `R/Shiny` [@shiny] framework will be used to create an interactive report.
+-   `Docker` [@docker] container technology will be used for containerizing the pipeline.
+
 While selecting the tools for this work the following considerations were kept:
 
-  - Minimize friction between components when developing the proof of concept. That is the reason why all tools are `R`-based, with the exception of `docker`.
-  - Use components easily installed and run inside a container.
-  - Favor analysis scripts over graphical user interfaces.
-  - Favor simplicity and closeness to the `R` language [@Ousterhout_18].
+-   Minimize friction between components when developing the proof of concept. That is the reason why all tools are `R`-based, with the exception of `docker`.
+-   Use components easily installed and run inside a container.
+-   Favor analysis scripts over graphical user interfaces.
+-   Favor simplicity and closeness to the `R` language [@Ousterhout_18].
 
 # Planning
 
@@ -71,24 +71,23 @@ While selecting the tools for this work the following considerations were kept:
 
 Each task will be related to a specific objective using the acronym *SO*
 
-1. Review literature for:
+1.  Review literature for:
 
-    1. **(SO1)** General problems of reproducibility in science and in bioinformatics
-  
-    1. **(SO1)** Current approaches to solve this problem
-  
-1. Software and technical knowledge and familiarization with:
+    1.  **(SO1)** General problems of reproducibility in science and in bioinformatics
 
-    1. **(SO2, SO3)** Docker, `R/Shiny` and `targets` R package
-  
-    1. **(SO4)** `maUEB` package
-  
-1. **(SO2, SO4)** Definition and implementation of the analysis pipeline
+    2.  **(SO1)** Current approaches to solve this problem
 
-1. **(SO3, SO4)** Definition and implementation of the interactive report
+2.  Software and technical knowledge and familiarization with:
 
-1. **(SO2, SO4)** Containerization of the pipeline
+    1.  **(SO2, SO3)** Docker, `R/Shiny` and `targets` R package
 
+    2.  **(SO4)** `maUEB` package
+
+3.  **(SO2, SO4)** Definition and implementation of the analysis pipeline
+
+4.  **(SO3, SO4)** Definition and implementation of the interactive report
+
+5.  **(SO2, SO4)** Containerization of the pipeline
 
 ## Schedule
 
@@ -146,55 +145,61 @@ ggplot2::ggplot(
 
 ## Milestones
 
-1. Workplan **(17/07/2022)**
+1.  Workplan **(17/07/2022)**
 
-1. Literature review and state of the art
+2.  Literature review and state of the art
 
-1. Creating a pipeline using `targets`
+3.  Creating a pipeline using `targets`
 
-1. Defining the interactive output
+4.  Defining the interactive output
 
-1. PEC2 **(21/11/2022)**
+5.  PEC2 **(21/11/2022)**
 
-1. Implementing interactive output
+6.  Implementing interactive output
 
-1. Containerize the pipeline
+7.  Containerize the pipeline
 
-1. PEC3 **(24/12/2022)**
+8.  PEC3 **(24/12/2022)**
 
-1. Manuscript and slides **(27/12/2022 - 15/01/2023)**
+9.  Manuscript and slides **(27/12/2022 - 15/01/2023)**
 
-1. Public defense **(23/01/2023 - 03/02/2023)**
+10. Public defense **(23/01/2023 - 03/02/2023)**
 
 ## Risk analysis
 
 Here I present possible risks and proposed solutions.
 
-1. Oversized scope. This work tries to address two well-diferentiated problems, the reproducibility and the report interactivity. The interactivity scope can be reduced or removed from the work if the amount of time is not enough to cover both. The solution proposed is to reevaluate the scope when PEC2 is finalized and the scope is better defined.
+1.  Oversized scope. This work tries to address two well-diferentiated problems, the reproducibility and the report interactivity. The interactivity scope can be reduced or removed from the work if the amount of time is not enough to cover both. The solution proposed is to reevaluate the scope when PEC2 is finalized and the scope is better defined.
+2.  Package availability. The initial intention is to use a recently developed package `maUEB`. If the package is not available other alternative packages covered during the master classes will be used.
 
-1. Package availability. The initial intention is to use a recently developed package `maUEB`. If the package is not available other alternative packages covered during the master classes will be used.
+3.  Data availability. If data is unavailable, for example confidentiality for confidentiality reasons, open data sources will be used.
 
-1. Data availability. If data is unavailable, for example confidentiality for confidentiality reasons, open data sources will be used.
-
-1. Pipeline definition. If the the pipeline is not possible to define in a real clinical setting, steps similar to those used in the other pipelines during the master classes will be used.
+4.  Pipeline definition. If the the pipeline is not possible to define in a real clinical setting, steps similar to those used in the other pipelines during the master classes will be used.
 
 # Expected results
 
-1. Work plan
+1.  Work plan
 
     A detailed workplan for the thesis work.
 
-1. Thesis document
+2.  Thesis document
 
     A document containing an state of the art, methodology, results and conclusions obtained during the master's thesis.
 
-1. A working proof of concept
+3.  A working proof of concept
 
     A containerized pipeline, delivered as an R package.
 
-1. Slides and virtual presentation
+4.  Slides and virtual presentation
 
     Slides and a video presentation for the defence.
+    
+# CCEG
+
+Although the work has a strong technical nature, its nature can be related to at least one *Sustainable Development Goals* (SDG) directly and another one which is transversal to many research works.
+
+In first place, this work is directly related to *SDG 9 Build resilient infrastructure, promote sustainable industrialization and foster innovation* in particular to point *9.5 Enhance scientific research, upgrade the technological capabilities of industrial sectors in all countries, in particular developing countries, including, by 2030, encouraging innovation and substantially increasing the number of research and development workers per 1 million people and public and private research and development spending*. One of the core aspects of this work is to improve the reproducibility of research in the field of Bioinformatics. This reproducibility is valuable in itself as it improves the quality of the evidence produced, but its impact goes beyond that. Low quality evidence may impact the allocation of research resources, as researchers may pursue lines that may have been discarded in the light of more solid and reproducible evidence. In fact research indicates that low quality evidence, although not restricted to reproducibility, wastes billions of dollars each in year in the biomedical field [@Macleod2014].
+
+In second place, almost all research works can impact into *SDG 5: Achieve gender equality and empower all women and girls*. In particular, a common issue is that cites are not equally distributed between genders and men tends to cite other men more often [@chatterjee2021]. Therefore in this work particular caution will be placed on considering all works that may be referenced regardless of the gender of the author/s and citing using full names. Additionally, inclusive language will be used during the writing and the third person plural will be used to avoid making assumptions about gender, for example of possible users of the work produced [@singletheyAPA]. Although initially none is detected, this work will also consider possible biases or issues with this product beyond gender, regarding  race, social position or level of technology access among others. One key consideration will be the open source nature of the work and the licensing of the software used to maximize its availability in institutions in developing countries (also related to *SDG 4 Quality education*).
 
 # Bibliography
-
