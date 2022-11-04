@@ -3,7 +3,13 @@
 .Rdata
 .httr-oauth
 .DS_Store
-
+vignettes
+results/
+parameters/
+celfiles/
+_targets/
 document/PEC1_files
 
 document/references/
+
+data/
