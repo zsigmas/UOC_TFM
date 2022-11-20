@@ -1,59 +1,26 @@
-file_path_must_work <- function(...) {
-    fn <- file.path(...)
-    stopifnot(file.exists(fn))
-    fn
+
+as_list_of_files <- function(fn, outputDir_args) {
+    function(...) {
+        fn(...)
+        args <- list(...)
+        unlist(purrr::map(args[outputDir_args], ~ list.files(.x, full.names = TRUE)))
+    }
 }
 
-qc_boxplot_alias <- function(...) {
-    args <- list(...)
-    maUEB::qc_boxplot(...)
-    file_path_must_work(args$outputDir, paste0("Boxplot", args$label, ".pdf"))
-}
-
-qc_pca1_alias <- function(...) {
-    args <- list(...)
-    structure(
-        maUEB::qc_pca1(...),
-        files = file_path_must_work(args$outputDir, paste0("PCA", args$label, ".pdf"))
-    )
-}
-
-qc_hc_alias <- function(...) {
-    args <- list(...)
-    maUEB::qc_hc(...)
-    file_path_must_work(args$outputDir, paste0("QC", args$label, ".pdf"))
-}
-
-arrayQualityMetrics_alias <- function(...) {
-    args <- list(...)
-    obj <- arrayQualityMetrics::arrayQualityMetrics(...)
-    stopifnot(dir.exists(args$outdir))
-    structure(
-        obj,
-        files = list.files(args$outdir, full.names = TRUE)
-    )
-}
-
-normalization_alias <- function(...) {
-    args <- list(...)
-    structure(
-        maUEB::normalization(...),
-        files = file_path_must_work(args$outputDir, paste0(args$outputFN, ".csv"))
-    )
-}
-
-save_annotations_alias <- function(...) {
-    args <- list(...)
-    obj <- maUEB::save_annotations(...)
-    structure(
-        obj,
-        files = c(
-            if (args$saveHTML) file_path_must_work(args$outputDir, paste0(args$outputFN, ".html")) else NULL,
-            file_path_must_work(args$outputDir, paste0(args$outputFN, ".csv"))
-        )
-    )
+append_args_as_attr <- function(fn, appendable_args = NULL) {
+    function(...) {
+        args <- list(...)
+        rlang::exec(structure, .Data = fn(...), !!!args[appendable_args])
+    }
 }
 
 remove_samples <- function(dataset, outlier_samples) {
-    dataset[,-which(colnames(dataset) %in% outlier_samples)]
+    dataset[, -which(colnames(dataset) %in% outlier_samples)]
+}
+
+abs_gsea_ReactomePAunfilt_alias <- function(...) {
+    args <- list(...)
+    annotPackage <<- args$annotPackage # Trick to place in global environment not recommended to push this forward. Fix package
+    args <- args[names(args) != "annotPackage"]
+    do.call(maUEB::abs_gsea_ReactomePAunfilt, args)
 }

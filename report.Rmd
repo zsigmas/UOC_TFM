@@ -1,0 +1,29 @@
+---
+title: report
+output: html_document
+---
+
+```{r, include = FALSE}
+library(targets)
+getwd()
+```
+
+# Raw quality control
+
+## Boxplot
+
+```{r, out.width="100%", out.height='800px', fig.align="center", echo = FALSE}
+file <- tar_read(qc_raw_boxplot_file)
+knitr::include_graphics(file)
+```
+
+
+## PCA
+```{r, out.width="100%", out.height='800px', fig.align="center", echo = FALSE}
+file <- tar_read(qc_raw_load_pca1_file)
+knitr::include_graphics(file)
+```
+
+## AQM
+
+[Array quality metrics report link](`r paste0("../", attr(tar_read(qc_raw_arrayQM), "outdir"), "/index.html")`)

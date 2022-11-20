@@ -1,0 +1,85 @@
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+### Regular Project
+Using library in: /home/zsigmas/R/x86_64-pc-linux-gnu-library/4.2
+Using library in: /usr/local/lib/R/site-library
+Using library in: /usr/lib/R/site-library
+Using library in: /usr/lib/R/library
+Using repo: https://packagemanager.rstudio.com/all/__linux__/jammy/latest
+During startup - Warning message:
+Setting LC_TIME failed, using "C" 
+> #!/usr/bin/env Rscript
+> 
+> # This is a helper script to run the pipeline.
+> # Choose how to execute the pipeline below.
+> # See https://books.ropensci.org/targets/hpc.html
+> # to learn about your options.
+> 
+> targets::tar_make()
+During startup - Warning message:
+Setting LC_TIME failed, using "C" 
+Loading required namespace: purrr
+✔ skip target targets_file
+✔ skip target targets
+✔ skip target cel_files
+✔ skip target eset_raw
+✔ skip target eset_norm
+✔ skip target qc_raw_hc_file
+✔ skip target eset_raw_f
+✔ skip target qc_raw_load_pca1
+✔ skip target qc_raw_boxplot_file
+✔ skip target qc_raw_arrayQM
+✔ skip target qc_norm_load_pca1
+✔ skip target qc_norm_arrayQM
+✔ skip target norm_annot
+✔ skip target qc_norm_hc_file
+✔ skip target qc_norm_corr_batch_load_pca1
+✔ skip target qc_norm_boxplot_file
+✔ skip target eset_norm_f
+✔ skip target targets_f
+✔ skip target eset_filtered
+✔ skip target qc_norm_arrayQM_f
+✔ skip target sdplot
+✔ skip target qc_norm_boxplot_file_f
+✔ skip target norm_filtered_annot
+✔ skip target qc_norm_load_pca1_f
+✔ skip target qc_norm_hc_file_f
+✔ skip target qc_norm_corr_batch_load_pca1_f
+✔ skip target design
+✔ skip target fit
+✔ skip target compare_main
+✔ skip target toptable_BH
+✔ skip target toptable_FDR
+✔ skip target volcano
+✔ skip target mc_venn_upset
+• start target abs_gsea_go_unfilt
+Error in `get_result(output = out, options)`:
+! callr subprocess failed: could not start R, exited with non-zero status, has crashed or was killed
+---
+Backtrace:
+1. targets::tar_make()
+2. targets:::callr_outer(targets_function = tar_make_inner, targets_arguments = targets…
+3. targets:::callr_dispatch(targets_function = targets_function, targets_arguments = ta…
+4. targets:::if_any(is.null(callr_function), callr_inner(targets_function = targets_fun…
+5. base::do.call(callr_function, callr_prepare_arguments(callr_function, …
+6. (function (func, args = list(), libpath = .libPaths(), repos = default_rep…
+7. callr:::get_result(output = out, options)
+8. callr:::throw(new_callr_error(output, killmsg))
+Execution halted
