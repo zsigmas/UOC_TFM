@@ -1,9 +1,9 @@
 # Load packages required to define the pipeline:
 library(targets)
 # devtools::install_local("../maUEB", force = TRUE)
+# devtools::load_all("../maUEB")
 requireNamespace("purrr")
 requireNamespace("rlang")
-
 
 # Helper function to create result directories on the fly
 create_dir <- function(...) {
@@ -37,12 +37,12 @@ create_dir <- function(...) {
 # just follows the provided Rmd but it is far from compulsory and any other division can be made, from
 # a single parameter structure per call to a list to covers the whole pipeline.
 
+
 # Quality parameters ----
 
 get_load_qc_parameters <- function() {
   data_dir <- "data"
   cel_dir <- "celfiles"
-  cel_files <- list.files("celfiles", full.names = TRUE)
   targets_file_name <- "targets.RSRCHR.STUDY.csv"
   targets_file <- file.path(data_dir, targets_file_name)
   results_dir <- "results"
@@ -307,13 +307,14 @@ get_dea_par <- function() {
   toptab <- list()
   toptab[["BH"]] <- list(
     padjust.method = "fdr",
-    html_report = TRUE,
+    html_report = FALSE, # It does not work properly in maUEB
     html_ntop = 500,
     html_group = "Group",
     html_padjust_method = c("none", "BH", "BH"), # p-value adjust method for HTML top table (eg. "BH", "none") for each coefficient. Select "none" if you want to show the raw pvalue in html table
-    outputDir = create_dir(resultsDir, "lm", "toptab")
+    outputDir = create_dir(resultsDir, "lm", "toptab_BH")
   )
-  toptab[["FDR"]] <- purrr::list_modify(toptab[["BH"]], padjust.method = "fdr", html_padjust_method = purrr::zap())
+
+  toptab[["FDR"]] <- purrr::list_modify(toptab[["BH"]], padjust.method = "fdr", html_padjust_method = purrr::zap(), outputDir = create_dir(resultsDir, "lm", "toptab_FDR"))
 
   sum_ngc1 <- list(
     B_thr = c(0),
@@ -568,7 +569,7 @@ get_abs_par <- function() {
 
 abs_par <- get_abs_par()
 
-# target ----
+
 # Set target options: ----
 tar_option_set(
   packages = c(
@@ -593,10 +594,16 @@ evaler <- function(x) {
   rlang::eval_tidy(rlang::enexpr(x))
 }
 
-# parameters to call are preceded by !! so they are resolved in advance and they do not create a cascade of updates when
-# a parameter of another function is touched
+# target list ----
 
-# Replace the target list below with your own: ----
+# parameters in the call from parameter lists are preceded by !!. This is done so the target depend exclusively on its particular parameters
+# and not on ht whole list. e.g.: targets_file target depends only on the entry !!qcl_par$targets_file and not on the whole qcl_par. This
+# avoids that changing the parameter list in another entry (e.g.: cel_files) invalidates the targets_file target.
+
+# Running specific targets can be done modifying the targets::tar_make call, indicating the specific targets that we want to make while avoiding
+# creating the whole list. (e.g.: If we want to create just the volcano plot we can pass that specific target and targets will run the minimum amount
+# of targets needed to make the volcano plot)
+
 list(
   # FILES ----
   tar_target(

@@ -1,0 +1,14 @@
+---
+title: "Interactive Volcano"
+output: html_document
+runtime: shiny
+---
+
+
+```{r, echo=FALSE}
+devtools::load_all("../brightPlots")
+vd <- brightPlots::format_vol_data(targets::tar_read(toptable_BH))
+brightPlots::volcano_UI("volcano", vd)
+brightPlots::volcano_server("volcano", vd)
+```
+
