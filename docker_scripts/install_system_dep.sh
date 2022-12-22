@@ -387,3 +387,6 @@ sudo apt-get install -y make
 # Rhtslib enrichplot requirement
 sudo apt-get update
 sudo apt-get install -y libbz2-dev libglpk-dev
+
+# targets dependencies
+apt-get install -y libxtst6 libxt6 && ln -s /usr/local/lib/R/lib/libR.so /lib/x86_64-linux-gnu/libR.so

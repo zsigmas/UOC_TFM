@@ -18,13 +18,6 @@ out_height <- "850px"
 
 ```
 
-/* ```{css, echo=FALSE}
-div {
-    resize: both;
-    overflow: auto;
-}
-``` */
-
 # Quality Control
 
 ## Raw
