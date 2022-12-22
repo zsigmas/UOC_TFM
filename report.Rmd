@@ -3,51 +3,49 @@ title: Static Report Sample
 output:
     html_document:
         theme: united
-        toc: true
-        toc_depth: 2
-        toc_float:
-            collapsed: true
-            smooth_scroll: true
+author: "Luis Morís Fernández"
+date: "`r Sys.time()`"
 ---
-
+<hr>
 ```{r, include = FALSE}
 library(targets)
 
 pdf_width <- "100%"
 out_height <- "850px"
-
 ```
 
-# Quality Control
+## Quality Control  {.tabset}
 
-## Raw
+### Raw {.tabset}
 
-### Boxplot
+#### Boxplot
 
-```{r, out.width=pdf_width, out.height=out_height, fig.align="center", echo = FALSE, class.source = "resizable"}
+```{r, out.width=pdf_width, out.height=out_height, fig.align="center", echo = FALSE}
 file <- tar_read(qc_raw_boxplot_file)
 knitr::include_graphics(file)
 ```
 
 
-### PCA
+#### PCA
 ```{r, out.width=pdf_width, out.height=out_height, fig.align="center", echo = FALSE}
 file <- tar_read(qc_raw_load_pca1_file)
 knitr::include_graphics(file)
 ```
 
-### HC
+#### HC
 ```{r, out.width=pdf_width, out.height=out_height, fig.align="center", echo = FALSE}
 file <- tar_read(qc_raw_hc)
 knitr::include_graphics(file)
 ```
 
-### AQM
-[Array quality metrics report link](`r paste0("../", attr(tar_read(qc_raw_arrayQM), "outdir"), "/index.html")`)
+#### AQM
+<a href=`r paste0("../", attr(tar_read(qc_raw_arrayQM), "outdir"), "/index.html")` target="_blank">Open AQEM report in a new window</a>
+</br>
+<iframe src = `r paste0("../", attr(tar_read(qc_raw_arrayQM), "outdir"), "/index.html")` style="width:100%;height:800px;" ></iframe>
 
-## Normalized
+### Normalized {.tabset}
 
-### Boxplot
+#### Boxplot
 
 ```{r, out.width=pdf_width, out.height=out_height, fig.align="center", echo = FALSE}
 file <- tar_read(qc_norm_boxplot_file)
@@ -55,25 +53,27 @@ knitr::include_graphics(file)
 ```
 
 
-### PCA
+#### PCA
 ```{r, out.width=pdf_width, out.height=out_height, fig.align="center", echo = FALSE}
 file <- tar_read(qc_norm_load_pca1_file)
 knitr::include_graphics(file)
 ```
 
-### PCA BATCH
+#### PCA BATCH
 ```{r, out.width=pdf_width, out.height=out_height, fig.align="center", echo = FALSE}
 file <- tar_read(qc_norm_corr_batch_load_pca1)
 knitr::include_graphics(file)
 ```
 
 
-### HC
+#### HC
 ```{r, out.width=pdf_width, out.height=out_height, fig.align="center", echo = FALSE}
 file <- tar_read(qc_norm_hc)
 knitr::include_graphics(file)
 ```
 
-### AQM
-[Array quality metrics report link](`r paste0("../", attr(tar_read(qc_norm_arrayQM), "outdir"), "/index.html")`)
+#### AQM
+<a href=`r paste0("../", attr(tar_read(qc_norm_arrayQM), "outdir"), "/index.html")` target="_blank">Open AQEM report in a new window</a>
+</br>
+<iframe src = `r paste0("../", attr(tar_read(qc_norm_arrayQM), "outdir"), "/index.html")` style="width:100%;height:800px;" ></iframe>
 
