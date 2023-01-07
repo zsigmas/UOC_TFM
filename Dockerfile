@@ -1,4 +1,4 @@
-# 4.2.1 As it is the first one with a frozen date
+# 4.2.1 As it is the first one with a frozen date in Posit Package Manager
 FROM ghcr.io/rocker-org/tidyverse:4.2.1
 
 ADD docker_scripts/install_system_dep.sh docker_scripts/install_system_dep.sh

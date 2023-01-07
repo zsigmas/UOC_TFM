@@ -1,14 +1,27 @@
 
+## Prerequisites:
+
+### Install the dependencies:
+
+``` r
+pak::pkg_install("uebvhir/maUEB")
+
+# To run the
+pak::pkg_install("clariomsmousetranscriptcluster.db")
+```
+
+## Running the pipeline:
+
 Assuming in all cases we are in the project folder
 
-## Run targets pipeline
+### Run targets pipeline
 
 ``` r
 # See documentation in targets package
 targets::tar_make()
 ```
 
-## Run in docker
+### Run in docker
 
   - Install Docker
 
@@ -32,3 +45,9 @@ Notes:
     executed using docker, this happens because Docker runs under root,
     as far as documentation indicates this cannot be changed. Remember
     to use `chown` to modify the ownership.
+
+## Reviewing data using the brightplots R/Shiny app
+
+The data obtained after the pipeline runs can be reviewed using the
+application described in the thesis manuscript running the `start_app.R`
+script.
