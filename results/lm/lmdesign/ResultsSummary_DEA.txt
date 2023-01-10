@@ -1,0 +1,162 @@
+
+Formula of linear model:  ~ 0 + Group + Batch
+DESIGN MATRIX:
+-Dimensions: 11 4
+-Rank: 4
+-Full rank: TRUE 
+      CTL PD1 CMP Batch2
+CTL.1   1   0   0      0
+CTL.2   1   0   0      1
+CTL.3   1   0   0      0
+CTL.4   1   0   0      1
+PD1.1   0   1   0      0
+PD1.2   0   1   0      1
+PD1.3   0   1   0      0
+PD1.4   0   1   0      1
+CMP.1   0   0   1      0
+CMP.3   0   0   1      0
+CMP.4   0   0   1      1
+attr(,"assign")
+[1] 1 1 1 2
+attr(,"contrasts")
+attr(,"contrasts")$Group
+[1] "contr.treatment"
+
+attr(,"contrasts")$Batch
+[1] "contr.treatment"
+
+
+Formula of linear model:  ~ 0 + Group + Batch
+DESIGN MATRIX:
+-Dimensions: 11 4
+-Rank: 4
+-Full rank: TRUE 
+      CTL PD1 CMP Batch2
+CTL.1   1   0   0      0
+CTL.2   1   0   0      1
+CTL.3   1   0   0      0
+CTL.4   1   0   0      1
+PD1.1   0   1   0      0
+PD1.2   0   1   0      1
+PD1.3   0   1   0      0
+PD1.4   0   1   0      1
+CMP.1   0   0   1      0
+CMP.3   0   0   1      0
+CMP.4   0   0   1      1
+attr(,"assign")
+[1] 1 1 1 2
+attr(,"contrasts")
+attr(,"contrasts")$Group
+[1] "contr.treatment"
+
+attr(,"contrasts")$Batch
+[1] "contr.treatment"
+
+
+Formula of linear model:  ~ 0 + Group + Batch
+DESIGN MATRIX:
+-Dimensions: 11 4
+-Rank: 4
+-Full rank: TRUE 
+      CTL PD1 CMP Batch2
+CTL.1   1   0   0      0
+CTL.2   1   0   0      1
+CTL.3   1   0   0      0
+CTL.4   1   0   0      1
+PD1.1   0   1   0      0
+PD1.2   0   1   0      1
+PD1.3   0   1   0      0
+PD1.4   0   1   0      1
+CMP.1   0   0   1      0
+CMP.3   0   0   1      0
+CMP.4   0   0   1      1
+attr(,"assign")
+[1] 1 1 1 2
+attr(,"contrasts")
+attr(,"contrasts")$Group
+[1] "contr.treatment"
+
+attr(,"contrasts")$Batch
+[1] "contr.treatment"
+
+
+Formula of linear model:  ~ 0 + Group + Batch
+DESIGN MATRIX:
+-Dimensions: 11 4
+-Rank: 4
+-Full rank: TRUE 
+      CTL PD1 CMP Batch2
+CTL.1   1   0   0      0
+CTL.2   1   0   0      1
+CTL.3   1   0   0      0
+CTL.4   1   0   0      1
+PD1.1   0   1   0      0
+PD1.2   0   1   0      1
+PD1.3   0   1   0      0
+PD1.4   0   1   0      1
+CMP.1   0   0   1      0
+CMP.3   0   0   1      0
+CMP.4   0   0   1      1
+attr(,"assign")
+[1] 1 1 1 2
+attr(,"contrasts")
+attr(,"contrasts")$Group
+[1] "contr.treatment"
+
+attr(,"contrasts")$Batch
+[1] "contr.treatment"
+
+
+Formula of linear model:  ~ 0 + Group + Batch
+DESIGN MATRIX:
+-Dimensions: 11 4
+-Rank: 4
+-Full rank: TRUE 
+      CTL PD1 CMP Batch2
+CTL.1   1   0   0      0
+CTL.2   1   0   0      1
+CTL.3   1   0   0      0
+CTL.4   1   0   0      1
+PD1.1   0   1   0      0
+PD1.2   0   1   0      1
+PD1.3   0   1   0      0
+PD1.4   0   1   0      1
+CMP.1   0   0   1      0
+CMP.3   0   0   1      0
+CMP.4   0   0   1      1
+attr(,"assign")
+[1] 1 1 1 2
+attr(,"contrasts")
+attr(,"contrasts")$Group
+[1] "contr.treatment"
+
+attr(,"contrasts")$Batch
+[1] "contr.treatment"
+
+
+Formula of linear model:  ~ 0 + Group + Batch
+DESIGN MATRIX:
+-Dimensions: 11 4
+-Rank: 4
+-Full rank: TRUE 
+      CTL PD1 CMP Batch2
+CTL.1   1   0   0      0
+CTL.2   1   0   0      1
+CTL.3   1   0   0      0
+CTL.4   1   0   0      1
+PD1.1   0   1   0      0
+PD1.2   0   1   0      1
+PD1.3   0   1   0      0
+PD1.4   0   1   0      1
+CMP.1   0   0   1      0
+CMP.3   0   0   1      0
+CMP.4   0   0   1      1
+attr(,"assign")
+[1] 1 1 1 2
+attr(,"contrasts")
+attr(,"contrasts")$Group
+[1] "contr.treatment"
+
+attr(,"contrasts")$Batch
+[1] "contr.treatment"
+

@@ -1,0 +1,14 @@
+"ID"	"Description"	"pvalue"	"p.adjust"	"Sign"
+"R-MMU-2172127"	"DAP12 interactions"	0.000250281433681741	0.0232761733324019	1
+"R-MMU-380108"	"Chemokine receptors bind chemokines"	0.000710386235069935	0.033032959930752	1
+"R-MMU-202433"	"Generation of second messenger molecules"	0.00172973001073746	0.0536216303328612	1
+"R-MMU-2168880"	"Scavenging of heme from plasma"	0.00232242209809983	0.053996313780821	1
+"R-MMU-198933"	"Immunoregulatory interactions between a Lymphoid and a non-Lymphoid cell"	0.00362216778203134	0.067372320745783	1
+"R-MMU-2173782"	"Binding and Uptake of Ligands by Scavenger Receptors"	0.00519095229267701	0.0804597605364937	1
+"R-MMU-383280"	"Nuclear Receptor transcription pathway"	0.0111923498719984	0.135556976905819	1
+"R-MMU-390650"	"Histamine receptors"	0.013118417119918	0.135556976905819	1
+"R-MMU-6799990"	"Metal sequestration by antimicrobial proteins"	0.013118417119918	0.135556976905819	1
+"R-MMU-373076"	"Class A/1 (Rhodopsin-like receptors)"	0.0172532476173833	0.140324404869812	1
+"R-MMU-166187"	"Mitochondrial Uncoupling"	0.0196152393904038	0.140324404869812	1
+"R-MMU-5362798"	"Release of Hh-Np from the secreting cell"	0.0196152393904038	0.140324404869812	1
+"R-MMU-9623433"	"NR1H2 & NR1H3 regulate gene expression to control bile acid homeostasis"	0.0196152393904038	0.140324404869812	1

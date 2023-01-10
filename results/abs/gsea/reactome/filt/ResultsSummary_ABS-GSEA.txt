@@ -1,0 +1,54 @@
+
+-------------------------GSEA-REACTOME----------------------------------
+Comparison:  PD1vsCTL 
+Reactome pval-cutoff:  0.05 
+Reactome pAdjustMethod:  BH 
+Number of terms found:  97
+
+-------------------------GSEA-REACTOME----------------------------------
+Comparison:  PD1vsCTL 
+Reactome pval-cutoff:  0.05 
+Reactome pAdjustMethod:  BH 
+Number of terms found:  82
+
+-------------------------GSEA-REACTOME----------------------------------
+Comparison:  PD1vsCTL 
+Reactome pval-cutoff:  0.05 
+Reactome pAdjustMethod:  BH 
+Number of terms found:  82
+
+-------------------------GSEA-REACTOME----------------------------------
+Comparison:  PD1vsCTL 
+Reactome pval-cutoff:  0.05 
+Reactome pAdjustMethod:  BH 
+Number of terms found:  82
+
+-------------------------GSEA-REACTOME----------------------------------
+Comparison:  PD1vsCTL 
+Reactome pval-cutoff:  0.05 
+Reactome pAdjustMethod:  BH 
+Number of terms found:  82
+
+-------------------------GSEA-REACTOME----------------------------------
+Comparison:  PD1vsCTL 
+Reactome pval-cutoff:  0.05 
+Reactome pAdjustMethod:  BH 
+Number of terms found:  82
+
+-------------------------GSEA-REACTOME----------------------------------
+Comparison:  PD1vsCTL 
+Reactome pval-cutoff:  0.05 
+Reactome pAdjustMethod:  BH 
+Number of terms found:  82
+
+-------------------------GSEA-REACTOME----------------------------------
+Comparison:  PD1vsCTL 
+Reactome pval-cutoff:  0.05 
+Reactome pAdjustMethod:  BH 
+Number of terms found:  82
+
+-------------------------GSEA-REACTOME----------------------------------
+Comparison:  PD1vsCTL 
+Reactome pval-cutoff:  0.05 
+Reactome pAdjustMethod:  BH 
+Number of terms found:  97

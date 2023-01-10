@@ -127,23 +127,6 @@ get_load_qc_parameters <- function() {
     outputDir = create_dir(results_dir, "norm_f", "batch_pca")
   )
 
-  # pvca ----
-
-  norm[["pvca"]] <- list(
-    pct_threshold = .6,
-    factors = targets_fact,
-    label = "NormData",
-    inputDir = data_dir,
-    outputDir = create_dir(results_dir, "norm", "pvca"),
-    summaryFN = summary_fn
-  )
-
-  norm_f[["pvca"]] <- purrr::list_modify(
-    norm[["pvca"]],
-    label = "NormFData",
-    outputDir = create_dir(results_dir, "norm_f", "pvca"),
-  )
-
   # hc ----
 
   raw[["hc"]] <- list(
@@ -237,7 +220,7 @@ get_load_qc_parameters <- function() {
     require.GOMF = FALSE
   )
 
-  outlier_samples <- "CMP.2"
+  outlier_samples <- c("CMP.2")
 
   sdplot <- list(
     var_thr = 0.65,
@@ -762,18 +745,6 @@ list(
       )
     )
   ),
-  # BLOCKED UNTIL https://github.com/uebvhir/maUEB/issues/3 IS SOLVED
-  # tar_target(
-  #   name = qc_norm_pcpva,
-  #   command = do.call(
-  #     what = maUEB::qc_pvca %>% as_list_of_files("outputDir"),
-  #     args = purrr::list_modify(
-  #       !!qcl_par$norm$pvca,
-  #       data = eset_norm
-  #     )
-  #   ),
-  #   format = "file"
-  # ),
   # SAMPLE REMOVAL ----
   tar_target(
     name = eset_raw_f,
@@ -799,16 +770,6 @@ list(
       )
     )
   ),
-  # tar_target( # DO WE ANNOTATE WITH NO OUTLIERS?
-  #   name = norm_annot_f,
-  #   command = do.call(
-  #     what = save_annotations_alias,
-  #     args = purrr::list_modify(
-  #       !!qcl_par$annotate$norm_f,
-  #       data = rownames(eset_norm_f)
-  #     )
-  #   )
-  # ),
   tar_target(
     name = qc_norm_f_boxplot_file,
     command = do.call(
@@ -869,11 +830,6 @@ list(
       )
     )
   ),
-  # BLOCKED UNTIL https://github.com/uebvhir/maUEB/issues/3 IS SOLVED
-  # tar_target(
-  #   name = qc_norm_f_pcpva,
-  #   command = evaler(maUEB::qc_pvca(data = eset_norm, factors = !!par$pvca$norm$fact, targets = !!par$pvca$norm$targets_file_name, pct_threshold = !!par$pvca$norm$threshold, label = !!par$pvca$norm$label, outputDir = !!par$pvca$norm$output_dir, summaryFN = !!par$pvca$norm$summary_fn)) # nolintr
-  # ),
 
   # FILTERING ----
   tar_target(
@@ -882,7 +838,7 @@ list(
       what = maUEB::sdplot %>% as_list_of_files("outputDir"),
       args = purrr::list_modify(
         !!qcl_par$sdplot,
-        data = exprs(eset_norm_f)
+        data = Biobase::exprs(eset_norm_f)
       )
     ),
     format = "file"
@@ -916,7 +872,7 @@ list(
       args = purrr::list_modify(
         !!dea_par$lmdesign,
         data = eset_filtered,
-        targets = pData(eset_filtered)
+        targets = Biobase::pData(eset_filtered)
       )
     )
   ),
@@ -927,7 +883,7 @@ list(
       args = purrr::list_modify(
         !!dea_par$lmfit,
         data = eset_filtered,
-        targets = pData(eset_filtered),
+        targets = Biobase::pData(eset_filtered),
         design = design
       )
     )
@@ -949,18 +905,6 @@ list(
       what = maUEB::dea_toptab %>% append_args_as_attr("outputDir"),
       args = purrr::list_modify(
         !!dea_par$toptab$BH,
-        fit.main = compare_main,
-        eset = eset_filtered,
-        listofcoef = colnames(compare_main)
-      )
-    )
-  ),
-  tar_target(
-    name = toptable_FDR,
-    command = do.call(
-      what = maUEB::dea_toptab1 %>% append_args_as_attr("outputDir"),
-      args = purrr::list_modify(
-        !!dea_par$toptab$FDR,
         fit.main = compare_main,
         eset = eset_filtered,
         listofcoef = colnames(compare_main)

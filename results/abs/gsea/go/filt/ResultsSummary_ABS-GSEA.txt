@@ -1,0 +1,35 @@
+
+-------------------------GSEA-GO----------------------------------
+Comparison:  PD1vsCTL 
+GO category:  BP 
+GO pval-cutoff:  0.05 
+GO pAdjustMethod:  BH 
+Number of terms found:  709
+
+-------------------------GSEA-GO----------------------------------
+Comparison:  PD1vsCTL 
+GO category:  BP 
+GO pval-cutoff:  0.05 
+GO pAdjustMethod:  BH 
+Number of terms found:  742
+
+-------------------------GSEA-GO----------------------------------
+Comparison:  PD1vsCTL 
+GO category:  BP 
+GO pval-cutoff:  0.05 
+GO pAdjustMethod:  BH 
+Number of terms found:  709
+
+-------------------------GSEA-GO----------------------------------
+Comparison:  PD1vsCTL 
+GO category:  BP 
+GO pval-cutoff:  0.05 
+GO pAdjustMethod:  BH 
+Number of terms found:  709
+
+-------------------------GSEA-GO----------------------------------
+Comparison:  PD1vsCTL 
+GO category:  BP 
+GO pval-cutoff:  0.05 
+GO pAdjustMethod:  BH 
+Number of terms found:  709

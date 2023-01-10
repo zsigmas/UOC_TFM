@@ -1,0 +1,54 @@
+
+-------------------------ORA-REACTOME----------------------------------
+Comparison:  PD1vsCTL
+Universe: 
+Selected genes-pval type:  P.Value
+Selected genes-pval threshold:  0.05
+Selected genes-logFC threshold:  1 ( abs )
+Num. selected genes:  43
+Num. unique selected genes:  43
+
+-------------------------ORA-REACTOME----------------------------------
+Comparison:  PD1vsCTL
+Universe: 
+Selected genes-pval type:  P.Value
+Selected genes-pval threshold:  0.05
+Selected genes-logFC threshold:  1 ( abs )
+Num. selected genes:  43
+Num. unique selected genes:  43
+
+-------------------------ORA-REACTOME----------------------------------
+Comparison:  PD1vsCTL
+Universe: 
+Selected genes-pval type:  P.Value
+Selected genes-pval threshold:  0.05
+Selected genes-logFC threshold:  1 ( abs )
+Num. selected genes:  43
+Num. unique selected genes:  43
+
+-------------------------ORA-REACTOME----------------------------------
+Comparison:  PD1vsCTL
+Universe: 
+Selected genes-pval type:  P.Value
+Selected genes-pval threshold:  0.05
+Selected genes-logFC threshold:  1 ( abs )
+Num. selected genes:  43
+Num. unique selected genes:  43
+
+-------------------------ORA-REACTOME----------------------------------
+Comparison:  PD1vsCTL
+Universe: 
+Selected genes-pval type:  P.Value
+Selected genes-pval threshold:  0.05
+Selected genes-logFC threshold:  1 ( abs )
+Num. selected genes:  43
+Num. unique selected genes:  43
+
+-------------------------ORA-REACTOME----------------------------------
+Comparison:  PD1vsCTL
+Universe: 
+Selected genes-pval type:  P.Value
+Selected genes-pval threshold:  0.05
+Selected genes-logFC threshold:  1 ( abs )
+Num. selected genes:  43
+Num. unique selected genes:  43

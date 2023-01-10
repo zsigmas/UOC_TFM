@@ -1,0 +1,35 @@
+
+-------------------------ORA-GO----------------------------------
+Comparison:  PD1vsCTL 
+GO category:  BP 
+GO pval-cutoff:  0.15 
+GO pAdjustMethod:  BH 
+Number of terms found:  508
+
+-------------------------ORA-GO----------------------------------
+Comparison:  PD1vsCTL 
+GO category:  BP 
+GO pval-cutoff:  0.15 
+GO pAdjustMethod:  BH 
+Number of terms found:  462
+
+-------------------------ORA-GO----------------------------------
+Comparison:  PD1vsCTL 
+GO category:  BP 
+GO pval-cutoff:  0.15 
+GO pAdjustMethod:  BH 
+Number of terms found:  508
+
+-------------------------ORA-GO----------------------------------
+Comparison:  PD1vsCTL 
+GO category:  BP 
+GO pval-cutoff:  0.15 
+GO pAdjustMethod:  BH 
+Number of terms found:  508
+
+-------------------------ORA-GO----------------------------------
+Comparison:  PD1vsCTL 
+GO category:  BP 
+GO pval-cutoff:  0.15 
+GO pAdjustMethod:  BH 
+Number of terms found:  508

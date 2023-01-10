@@ -1,0 +1,50 @@
+
+NON-SPECIFIC FILTERING
+-Feature filtering: ^AFFX 
+-Filtering by Annotation: TRUE 
+-Filtering by Variance: FALSE 
+-Number of features before filtering: 29129 
+-Number of features after filtering: 20078 
+  numDupsRemoved numRemoved.ENTREZID
+1            140                8911
+
+
+NON-SPECIFIC FILTERING
+-Feature filtering: ^AFFX 
+-Filtering by Annotation: TRUE 
+-Filtering by Variance: FALSE 
+-Number of features before filtering: 29129 
+-Number of features after filtering: 20078 
+  numDupsRemoved numRemoved.ENTREZID
+1            140                8911
+
+
+NON-SPECIFIC FILTERING
+-Feature filtering: ^AFFX 
+-Filtering by Annotation: TRUE 
+-Filtering by Variance: FALSE 
+-Number of features before filtering: 29129 
+-Number of features after filtering: 20078 
+  numDupsRemoved numRemoved.ENTREZID
+1            140                8911
+
+
+NON-SPECIFIC FILTERING
+-Feature filtering: ^AFFX 
+-Filtering by Annotation: TRUE 
+-Filtering by Variance: FALSE 
+-Number of features before filtering: 29129 
+-Number of features after filtering: 20078 
+  numDupsRemoved numRemoved.ENTREZID
+1            140                8911
+
+
+NON-SPECIFIC FILTERING
+-Feature filtering: ^AFFX 
+-Filtering by Annotation: TRUE 
+-Filtering by Variance: FALSE 
+-Number of features before filtering: 29129 
+-Number of features after filtering: 20078 
+  numDupsRemoved numRemoved.ENTREZID
+1            140                8911
+

@@ -6,7 +6,7 @@
 ``` r
 pak::pkg_install("uebvhir/maUEB")
 
-# To run the
+pak::pkg_install("pd.clariom.s.mouse.ht")
 pak::pkg_install("clariomsmousetranscriptcluster.db")
 ```
 
